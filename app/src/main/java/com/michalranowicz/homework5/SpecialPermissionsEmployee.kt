@@ -4,6 +4,8 @@ package com.michalranowicz.homework5
 class SpecialPermissionsEmployee(private val employee: Employee) : Employee {
     override val name: String
         get() = employee.name
+    override val surname: String
+        get() = employee.surname
     override val position: String
         get() = employee.position
     override val salary: Double
@@ -13,11 +15,16 @@ class SpecialPermissionsEmployee(private val employee: Employee) : Employee {
         set(value) {
             employee.vacationDays = value
         }
-    override val employeeInfo: EmployeeInfo
-        get() = employee.employeeInfo
+    override var company: Company
+        get() = TODO("Not yet implemented")
+        set(value) {}
 
     override fun getInfo(): String {
         return "${employee.getInfo()}, Specjalne uprawnienia: TAK"
+    }
+
+    override fun printVacationInfo() {
+        employee.printVacationInfo()
     }
 
     override fun processRequest(request: String, daysOff: Int) {
